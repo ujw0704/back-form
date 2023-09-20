@@ -7,29 +7,19 @@ import  user from "../Models/FormSchema.js"
 const app = express()
 
 
-app.use(cors({origin:"http://localhost:3001/"}))
+app.use(cors({origin:"http://localhost:3000"}))
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 app.post("/register",async(req,res)=>{
-    // const { body } = req;
+
+    console.log("Received POST request at /register");
+    console.log(req.body)
+ const { body } = req;
 
     console.log(req.body)
     const newdata = await user({
-        number,
-        email,
-        dob,
-        gender,
-        fname,
-        lname,
-        comment,
-        adress,
-        education,
-        passing,
-        collage,
-        designation,
-        experince,
-        option, 
+    
         
     });
     

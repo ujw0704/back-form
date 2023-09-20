@@ -6,7 +6,7 @@ import mongoose from "mongoose";
         required: true,
         unique: false,
         maxLength:50,
-        maxLength:4,
+        mixLength:4,
     },
     email:{
         type: String,
