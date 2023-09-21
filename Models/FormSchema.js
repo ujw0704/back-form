@@ -1,119 +1,87 @@
 import mongoose from "mongoose";
 
- const userSchema = new mongoose.Schema({
-    username:{
-        type : String,
-        required: true,
-        unique: false,
-        maxLength:50,
-        mixLength:4,
-    },
-    email:{
+const userSchema = new mongoose.Schema({
+    fullName: {
         type: String,
-        required:true,
+        required: true,
         unique: false,
-        maxLength:50,
-        minLength:4,
-
+        maxLength: 50,
+        minLength: 4,
     },
-
-    number:{
-        type:Number,
+    email: {
+        type: String,
+        required: true,
+        unique: false,
+        maxLength: 50,
+        minLength: 4,
+    },
+    phone: {
+        type: Number,
+        required: true,
+    },
+    dob: {
+        type: Date,
+        required: true,
+        default: () => Date.now(),
+    },
+    gender: {
+        type: String,
+        required: false,
+        default: "Unknown",
+    },
+    fname: {
+        type: String,
+        required: true,
+        unique: false,
+        maxLength: 30,
+        minLength: 4,
+    },
+    fphone: {
+        type: Number,
+        required: true,
+    },
+    laddress: {
+        type: String,
+        required: true,
+        unique: false,
+        maxLength: 150,
+    },
+    same: {
+        type: String,
+        required: true
+    },
+    areyoua: {
+        type: String,
+        required: true
+    },
+    qualification: {
+        type: String,
         required: true,
         unique: false,
     },
-
-
-
-    dob :{
-        type:  Number,
+    qualificationYear: {
+        type: Number,
+        required: true,
+    },
+    college: {
+        type: String,
+        required: true,
+    },
+    designation: {
+        type: String,
         required: true,
         unique: false,
-        default:Date.now()
-
     },
-
-    gender:{
-        type:String ,
-        required:false,
-         default:false,
+    company: {
+        type: String,
+        required: true,
     },
+    course: {
+        type: String,
+        required: true,
+    },
+});
 
-fname:{
-    type:String,
-    required:true,
-    unique:false,
-    maxLength:30,
-    minLength:4,
+const user = mongoose.model('user', userSchema);
 
-},
-
-lname:{
-    type:String,
-    required:true,
-    unique:false,
-    maxLength:30,
-    minLength:4,
-
-
-},
-
-Comment:{
-    type: String,
-    required:true,
-     unique:false,
-     maxLength: 150
-},
-address:{
-    type:String,
-    required:true,
-    unique:false,
-   
-},
-education:{
-    type:String,
-    required:true,
-    unique:false,
-
-},
-
-   passing:{
-    type:String,
-    required:true,
-    unique:false,
-   },
-
-
- collage:{
-    type:String,
-    required:true,
-    unique: false ,
-
- },
-
- desiganation:{
-    type : String,
-    required: true, 
-    unique:false,
-
- },
- experince:{
-    type:String,
-    unique:false,
-    required:true,
-
- },
-
- option:{
-    type:String,
-    unique:false,
-    required:true,
-
- },
-})
-
- const user =  mongoose.model('user',userSchema)
-
- export default user;
-
-
+export default user;
